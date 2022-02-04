@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script src="5000.js"></script>
+      <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+      
+      
+</head>
+<body class="h-full">
+    
+    <div id='app' class="flex flex-col h-full w-full">
+        
+        <div class="flex items-center p-2 text-blue-500 justify-between text-2xl shadow">
+            <span class="material-icons">opacity</span>
+            <div class="capitalize flex font-bold  p-2">One Liners</div>
+
+            <span class="material-icons">settings</span>
+
+        </div>
+    
+        <div class="flex flex-col p-4 h-full overflow-auto">
+            <div 
+            v-on:click="select($event)"
+            v-for="num in limit" 
+            :key="num" 
+            class="border-2 rounded-xl shadow-xl p-4 text-2xl text-center m-4 bg-blue-50 font-bold">
+                {{display_data(num,0)}}
+                <br>
+                <div class=" italic font-bold text-center text-blue-500 p-4 m-4">{{display_data(num,1)}}</div>
+            </div>
+        </div>
+    
+        <div class="flex items-center p-2 text-blue-400 justify-between">
+            <span v-on:click="prev()" 
+            class="material-icons text-2xl p-2 px-4 cursor-pointer select-none bg-blue-50 rounded-full">arrow_back</span> 
+            <div class="flex text-2xl font-bold  p-2 rounded-full bg-blue-50">
+                <input v-model="index" type="number" 
+                placeholder="Page number"
+                style="width: 100px;"
+                class="bg-transparent text-center"/>
+                <div>of {{ total_pages }}</div>
+            </div>
+            <span v-on:click="next()"  
+            class="material-icons text-2xl p-2 px-4 cursor-pointer select-none bg-blue-50 rounded-full">arrow_forward</span> 
+        </div>
+    </div>
+
+
+
+    <script src="vue.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
